@@ -1,0 +1,42 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        <h:outputLabel value="THIS IS A PAGE THAT NORMAL USERS CAN ACCESS"/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <h:link value="Back to index" outcome="index"/>
+        
+        <h:form>
+            <h:outputLabel value="SEND MONEY"/>
+            <h:inputText value="#{backingBean.amount}">
+                
+            </h:inputText>
+            <h:selectOneMenu value="#{backingBean.selectedItem}">
+                <f:selectItem itemValue="#{null}" itemLabel="-- select one --" />
+                <f:selectItems value="#{backingBean.refresh()}" />
+            </h:selectOneMenu>
+            <h:commandButton value="Submit" action="#{backingBean.submitSend()}" />
+        </h:form>
+        <br />
+        <h:form>
+            <h:outputLabel value="REQUEST MONEY"/>
+            <h:inputText value="#{backingBean.amount}">
+                <f:validateRegex pattern="[0-9]+(\\.[0-9][0-9]?)?" />
+            </h:inputText>
+            <h:selectOneMenu value="#{backingBean.selectedItem}">
+                <f:selectItem itemValue="#{null}" itemLabel="-- select one --" />
+                <f:selectItems value="#{backingBean.refresh()}" />
+            </h:selectOneMenu>
+            <h:commandButton value="Submit" action="#{backingBean.submitRequest()}" />
+        </h:form>
+    </h:body>
+</html>
+
