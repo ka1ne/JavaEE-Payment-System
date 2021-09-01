@@ -1,4 +1,4 @@
-# Coursework for a Web Applications module
+# Java payment system
 Web app, created using Java EE, JSF, EJBs. 
 
 Implements MVC architecture. The model, made up of the EJBs along with the
